@@ -4,21 +4,109 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy</title>
+  <title>Privacy Policy - Negoshi AI</title>
   <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* Styles specifically for the header animation */
+    header#pageHeader {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      /* You might have other basic header styles in your CSS, but these are crucial for the animation */
+    }
+
+    .header-fade-out {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+  </style>
 </head>
 <body>
-  <header style="padding: 2rem; text-align: center;">
+  <header id="pageHeader">
     <h1>Privacy Policy</h1>
+    <p>Your privacy is important to us at Negoshi AI.</p>
   </header>
-  <main style="max-width: 800px; margin: auto; padding: 2rem;">
+  <main>
+    <h2>Our Commitment to Your Privacy</h2>
+    <p>At Negoshi AI, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our services.</p>
 
-<p>We collect minimal data necessary to provide our services. This may include your email address and any information you submit through forms. We never sell your data.</p>
-<p>Data is securely stored and processed to improve your experience. You can request deletion of your data at any time by contacting us at contact@negoshiai.online.</p>
+    <h2>Information We Collect</h2>
+    <p>We collect the minimal amount of data necessary to provide and improve our services. This may include:</p>
+    <ul>
+      <li>**Email Address:** When you register or contact us, we may collect your email address for communication and account management purposes.</li>
+      <li>**Information Submitted Through Forms:** Any information you voluntarily submit through forms on our website or within our services, such as feedback or support requests.</li>
+      <li>**Usage Data (Anonymized):** We may collect anonymized and aggregated usage data to understand how our services are being used and to help us improve them. This data does not personally identify you.</li>
+    </ul>
 
+    <h2>How We Use Your Information</h2>
+    <p>The information we collect is used for the following purposes:</p>
+    <ul>
+      <li>To provide and maintain our services.</li>
+      <li>To communicate with you, including responding to your inquiries and providing support.</li>
+      <li>To personalize your experience and improve our services.</li>
+      <li>To monitor and analyze usage trends to enhance our offerings.</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>We take the security of your data seriously and implement appropriate technical and organizational measures to protect it from unauthorized access, disclosure, alteration, or destruction. Your data is securely stored on our servers and processed with industry-standard security protocols.</p>
+
+    <h2>Data Sharing and Disclosure</h2>
+    <p>We want to be clear: **we never sell your personal data to third parties.** We may, however, share anonymized and aggregated usage data for analytical purposes. We may also disclose your information if required by law or in response to a valid legal request.</p>
+
+    <h2>Your Rights Regarding Your Data</h2>
+    <p>You have the following rights regarding your personal data:</p>
+    <ul>
+      <li>**Access:** You have the right to request access to the personal data we hold about you.</li>
+      <li>**Deletion:** You can request the deletion of your personal data at any time. To do so, please contact us at <a href="mailto:contact@negoshiai.online">contact@negoshiai.online</a>. We will process your request in accordance with applicable data protection laws.</li>
+      <li>**Correction:** If you believe that any information we hold about you is inaccurate or incomplete, you have the right to request that we correct it.</li>
+    </ul>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new Privacy Policy on this page. We encourage you to review this policy periodically for any updates.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at <a href="mailto:contact@negoshiai.online">contact@negoshiai.online</a>.</p>
   </main>
-  <footer style="text-align: center; padding: 2rem; font-size: 0.9rem;">
+  <footer>
     <p>&copy; 2025 Negoshi AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Get the header element
+    const header = document.getElementById('pageHeader');
+    // Get the first main content element (the target for triggering the animation)
+    const firstMainElement = document.querySelector('main > h2:first-of-type');
+
+    // Function to handle the scroll event
+    function handleScroll() {
+      if (!header || !firstMainElement) {
+        // Ensure elements exist before proceeding
+        // console.warn("Header or first main element not found. Ensure IDs and selectors are correct.");
+        return;
+      }
+
+      // Get the top position of the first main content element relative to the viewport
+      const firstMainElementTop = firstMainElement.getBoundingClientRect().top;
+      // Define a threshold for when the fade should occur.
+      // Adjust this value based on your header's height and desired effect.
+      const scrollThreshold = 150; // Pixels from the top of the viewport
+
+      if (firstMainElementTop < scrollThreshold) {
+        // If the first main content is close to the top or has scrolled past, add the fade-out class
+        header.classList.add('header-fade-out');
+      } else {
+        // Otherwise, ensure the header is visible by removing the fade-out class
+        header.classList.remove('header-fade-out');
+      }
+    }
+
+    // Add scroll event listener to the window
+    window.addEventListener('scroll', handleScroll);
+
+    // Call handleScroll once on load in case the page is already scrolled
+    document.addEventListener('DOMContentLoaded', handleScroll);
+  </script>
 </body>
-</html>
+  </html>
