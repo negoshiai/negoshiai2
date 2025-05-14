@@ -11,6 +11,48 @@
   <header style="padding: 2rem; text-align: center;">
     <h1>Refund Policy</h1>
   </header>
+   <style>
+    /* General body styling for better readability and modern look */
+    body {
+      font-family: 'Inter', sans-serif; /* Modern sans-serif font */
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9fafb; /* Light gray background */
+      color: #333; /* Dark gray text for contrast */
+    }
+
+    /* Optimized Header Styles */
+    header#pageHeader { /* Added ID for specificity if needed */
+      background-color: #ffffff; /* White background for the header */
+      padding: 2rem 2rem; /* Adjusted padding */
+      text-align: center;
+      border-bottom: 1px solid #e5e7eb; /* Lighter border color */
+      position: sticky; /* Make header sticky */
+      top: 0; /* Stick to the top */
+      z-index: 1000; /* Ensure header is above other content */
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition for opacity and transform */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    }
+
+    header#pageHeader h1 {
+      font-size: 2.2rem; /* Slightly smaller for sticky header */
+      margin-bottom: 0.25rem; /* Reduced space below the title */
+      color: #111827; /* Darker heading color */
+    }
+
+    header#pageHeader p {
+      font-size: 1rem; /* Slightly smaller subtitle */
+      color: #6b7280; /* Muted color for subtitle */
+      margin-top: 0;
+    }
+
+    /* CSS class for the fade-out effect */
+    .header-fade-out {
+      opacity: 0;
+      transform: translateY(-20px); /* Optional: slight upward movement */
+      pointer-events: none; /* Make it non-interactive when faded */
+    }
   <main style="max-width: 800px; margin: auto; padding: 2rem;">
 
 <p>We aim for your satisfaction. If you're not happy with our service, contact us within 7 days of purchase to request a refund. Approved refunds will be processed within 5–10 business days.</p>
