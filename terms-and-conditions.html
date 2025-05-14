@@ -5,34 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Terms & Conditions - Negoshi AI</title>
   <link rel="stylesheet" href="../styles.css" />
-  <style>
-    /* Optimized Header Styles */
-    header {
-    
-      padding: 3rem 2rem; /* Increased padding for better spacing */
-      text-align: center;
-      border-bottom: 1px solid #ddd; /* Subtle bottom border */
-    }
-
-    header h1 {
-      font-size: 2.5rem; /* Larger title */
-      margin-bottom: 0.5rem; /* Space below the title */
-    }
-
-    header p {
-      font-size: 1.1rem; /* Optional subtitle */
-      
-    }
-  </style>
-</head>
+  </head>
 <body>
-  <header>
+  <header id="pageHeader">
     <h1>Terms & Conditions</h1>
     <p>Last updated: May 14, 2025</p>
   </header>
-  <main style="max-width: 800px; margin: auto; padding: 2rem;">
 
-    <h2>1. Acceptance of Terms</h2>
+  <main>
+    <h2 id="firstTerm">1. Acceptance of Terms</h2>
     <p>By accessing and using the Negoshi AI services, you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, do not use our services.</p>
 
     <h2>2. Use of Services</h2>
@@ -64,10 +45,47 @@
 
     <h2>9. Contact Us</h2>
     <p>If you have any questions about these Terms & Conditions, please contact us at <a href="mailto:support@negoshiai.com">support@negoshiai.com</a>.</p>
-
   </main>
-  <footer style="text-align: center; padding: 2rem; font-size: 0.9rem;">
+
+  <footer>
     <p>&copy; 2025 Negoshi AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Get the header element
+    const header = document.getElementById('pageHeader');
+    // Get the first term element (the target for triggering the animation)
+    const firstTerm = document.getElementById('firstTerm');
+
+    // Function to handle the scroll event
+    function handleScroll() {
+      if (!header || !firstTerm) {
+        // Ensure elements exist before proceeding
+        // console.warn("Header or firstTerm element not found. Ensure IDs are correct and elements are loaded.");
+        return;
+      }
+
+      // Get the top position of the firstTerm element relative to the viewport
+      const firstTermTop = firstTerm.getBoundingClientRect().top;
+      // Define a threshold for when the fade should occur.
+      // This value might need adjustment based on your header's height and desired effect.
+      const scrollThreshold = 150; // Pixels from the top of the viewport
+
+      if (firstTermTop < scrollThreshold) {
+        // If the first term is close to the top or has scrolled past, add the fade-out class
+        header.classList.add('header-fade-out');
+      } else {
+        // Otherwise, ensure the header is visible by removing the fade-out class
+        header.classList.remove('header-fade-out');
+      }
+    }
+
+    // Add scroll event listener to the window
+    window.addEventListener('scroll', handleScroll);
+
+    // Call handleScroll once on load in case the page is already scrolled
+    // (e.g., if refreshed or linked with a hash)
+    document.addEventListener('DOMContentLoaded', handleScroll);
+  </script>
 </body>
 </html>
