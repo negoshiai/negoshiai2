@@ -1,17 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Refund Policy</title>
-  <link rel="stylesheet" href="../styles.css" />
-</head>
-<body>
-  <header style="padding: 2rem; text-align: center;">
-    <h1>Refund Policy</h1>
-  </header>
-   <style>
+  <title>Refund Policy - Negoshi AI</title>
+  <style>
     /* General body styling for better readability and modern look */
     body {
       font-family: 'Inter', sans-serif; /* Modern sans-serif font */
@@ -22,8 +15,8 @@
       color: #333; /* Dark gray text for contrast */
     }
 
-    /* Optimized Header Styles */
-    header#pageHeader { /* Added ID for specificity if needed */
+    /* Optimized Header Styles with Sticky and Fade Effect */
+    header#pageHeader { /* Added ID for specificity */
       background-color: #ffffff; /* White background for the header */
       padding: 2rem 2rem; /* Adjusted padding */
       text-align: center;
@@ -31,7 +24,7 @@
       position: sticky; /* Make header sticky */
       top: 0; /* Stick to the top */
       z-index: 1000; /* Ensure header is above other content */
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition for opacity and transform */
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
     }
 
@@ -53,14 +46,102 @@
       transform: translateY(-20px); /* Optional: slight upward movement */
       pointer-events: none; /* Make it non-interactive when faded */
     }
-  <main style="max-width: 800px; margin: auto; padding: 2rem;">
 
-<p>We aim for your satisfaction. If you're not happy with our service, contact us within 7 days of purchase to request a refund. Approved refunds will be processed within 5–10 business days.</p>
-<p>We reserve the right to deny refund requests that do not meet our policy criteria.</p>
+    /* Main content styling */
+    main {
+      max-width: 800px;
+      margin: 2rem auto; /* Add top margin to account for sticky header */
+      padding: 2rem;
+      background-color: #ffffff; /* White background for content */
+      border-radius: 8px; /* Rounded corners for the content block */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow for content */
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #6b7280; /* Muted color for footer text */
+      border-top: 1px solid #e5e7eb; /* Separator line for footer */
+      margin-top: 2rem;
+    }
+
+    /* Add Inter font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+  </style>
+</head>
+<body>
+  <header id="pageHeader">
+    <h1>Refund Policy</h1>
+    <p>At Negoshi AI, your satisfaction is our priority.</p>
+  </header>
+
+  <main>
+    <h2>Our Commitment</h2>
+    <p>At Negoshi AI, we are committed to providing you with high-quality services. We understand, however, that sometimes things don't go as planned. This Refund Policy outlines the conditions under which refunds may be issued.</p>
+
+    <h2>7-Day Satisfaction Guarantee</h2>
+    <p>We stand behind our services. If, for any reason, you are not fully satisfied with your purchase, please contact our support team within **7 days** from the date of your initial purchase. To request a refund, please provide detailed information about the issue you are experiencing and any relevant order details.</p>
+
+    <h2>Refund Process</h2>
+    <p>Once your refund request is received and reviewed by our team, we will notify you of the approval or rejection of your refund. If your refund is approved, it will be processed, and a credit will automatically be applied to your original method of payment within **5 to 10 business days**. Please note that the processing time can vary depending on your payment provider.</p>
+
+    <h2>Conditions for Refund</h2>
+    <p>While we strive to be fair, certain conditions apply to our refund policy:</p>
+    <ul>
+      <li>Refund requests must be submitted within the specified 7-day period.</li>
+      <li>We may require you to provide sufficient evidence of the issue for which you are requesting a refund.</li>
+      <li>Refunds may not be granted if the issue is due to misuse of our services or if you have violated our Terms & Conditions.</li>
+      <li>For subscription-based services, refunds are typically only provided for the most recent billing cycle and are not provided for past usage.</li>
+      <li>We reserve the right to offer a service credit or alternative resolution instead of a monetary refund at our discretion.</li>
+    </ul>
+
+    <h2>Denial of Refund Requests</h2>
+    <p>We reserve the right to deny refund requests if they do not meet our policy criteria, including but not limited to requests made after the 7-day period, lack of sufficient evidence of an issue, or violation of our terms of service.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns regarding our Refund Policy, please do not hesitate to contact our support team at <a href="mailto:support@negoshiai.com">support@negoshiai.com</a>.</p>
 
   </main>
-  <footer style="text-align: center; padding: 2rem; font-size: 0.9rem;">
+  <footer>
     <p>&copy; 2025 Negoshi AI. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Get the header element
+    const header = document.getElementById('pageHeader');
+    // Get the first main content element (the target for triggering the animation)
+    const firstMainElement = document.querySelector('main > h2:first-of-type');
+
+    // Function to handle the scroll event
+    function handleScroll() {
+      if (!header || !firstMainElement) {
+        // Ensure elements exist before proceeding
+        // console.warn("Header or first main element not found. Ensure IDs and selectors are correct.");
+        return;
+      }
+
+      // Get the top position of the first main content element relative to the viewport
+      const firstMainElementTop = firstMainElement.getBoundingClientRect().top;
+      // Define a threshold for when the fade should occur.
+      // Adjust this value based on your header's height and desired effect.
+      const scrollThreshold = 150; // Pixels from the top of the viewport
+
+      if (firstMainElementTop < scrollThreshold) {
+        // If the first main content is close to the top or has scrolled past, add the fade-out class
+        header.classList.add('header-fade-out');
+      } else {
+        // Otherwise, ensure the header is visible by removing the fade-out class
+        header.classList.remove('header-fade-out');
+      }
+    }
+
+    // Add scroll event listener to the window
+    window.addEventListener('scroll', handleScroll);
+
+    // Call handleScroll once on load in case the page is already scrolled
+    document.addEventListener('DOMContentLoaded', handleScroll);
+  </script>
 </body>
 </html>
