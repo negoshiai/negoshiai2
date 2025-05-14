@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,24 @@
       padding: 3rem 2rem; /* Increased padding for better spacing */
       text-align: center;
       border-bottom: 1px solid #ddd; /* Subtle bottom border */
+      transition: background-color 0.3s ease, opacity 0.3s ease; /* Smooth transition for fade effect */
+      position: sticky; /* Make header sticky */
+      top: 0;
+      z-index: 100; /* Ensure header is above other content */
     }
+
+    header.scrolled {
+      background-color: rgba(248, 249, 250, 0.8); /* Lighter background, with opacity */
+      opacity: 0.7; /* Reduce opacity when scrolled */
+      border-bottom: 1px solid rgba(221, 221, 221, 0.5); /* Reduced border opacity */
+    }
+
+    header.fade-out {
+      opacity: 0;
+      background-color: transparent; /* Ensure background is transparent */
+      border-bottom: none; /* Remove border */
+    }
+
 
     header h1 {
       font-size: 2.5rem; /* Larger title */
@@ -24,14 +42,62 @@
       font-size: 1.1rem; /* Optional subtitle */
       color: #666;
     }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      margin-top: 2rem; /* Add space before headings */
+      font-size: 1.5rem;
+      color: #2c3e50;
+    }
+    p{
+        color: #555;
+        line-height: 1.7;
+    }
+    ul {
+        list-style-type: disc;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+    }
+    li{
+        margin-bottom: 0.5rem;
+    }
+
   </style>
+  <script>
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      const firstSection = document.querySelector('h2'); // Select the first section heading
+
+      if (!firstSection) return; // Exit if the section doesn't exist
+
+      const sectionTop = firstSection.offsetTop;
+      const scrollY = window.scrollY;
+
+      if (scrollY >= sectionTop - 100) { // Adjust 100px as needed for fade point
+        header.classList.add('fade-out');
+        header.classList.remove('scrolled'); //remove the scrolled class
+      } else if (scrollY > 50){
+        header.classList.remove('fade-out');
+        header.classList.add('scrolled');
+      }
+      else {
+        header.classList.remove('fade-out');
+        header.classList.remove('scrolled');
+      }
+    });
+  </script>
 </head>
 <body>
   <header>
     <h1>Terms & Conditions</h1>
     <p>Last updated: May 14, 2025</p>
   </header>
-  <main style="max-width: 800px; margin: auto; padding: 2rem;">
+  <main>
 
     <h2>1. Acceptance of Terms</h2>
     <p>By accessing and using the Negoshi AI services, you agree to be bound by these Terms & Conditions. If you do not agree to all of these terms, do not use our services.</p>
