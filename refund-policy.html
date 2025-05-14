@@ -4,72 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Refund Policy - Negoshi AI</title>
-  <style>
-    /* General body styling for better readability and modern look */
-    body {
-      font-family: 'Inter', sans-serif; /* Modern sans-serif font */
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background-color: #f9fafb; /* Light gray background */
-      color: #333; /* Dark gray text for contrast */
-    }
-
-    /* Optimized Header Styles with Sticky and Fade Effect */
-    header#pageHeader { /* Added ID for specificity */
-      background-color: #ffffff; /* White background for the header */
-      padding: 2rem 2rem; /* Adjusted padding */
-      text-align: center;
-      border-bottom: 1px solid #e5e7eb; /* Lighter border color */
-      position: sticky; /* Make header sticky */
-      top: 0; /* Stick to the top */
-      z-index: 1000; /* Ensure header is above other content */
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth transition */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-    }
-
-    header#pageHeader h1 {
-      font-size: 2.2rem; /* Slightly smaller for sticky header */
-      margin-bottom: 0.25rem; /* Reduced space below the title */
-      color: #111827; /* Darker heading color */
-    }
-
-    header#pageHeader p {
-      font-size: 1rem; /* Slightly smaller subtitle */
-      color: #6b7280; /* Muted color for subtitle */
-      margin-top: 0;
-    }
-
-    /* CSS class for the fade-out effect */
-    .header-fade-out {
-      opacity: 0;
-      transform: translateY(-20px); /* Optional: slight upward movement */
-      pointer-events: none; /* Make it non-interactive when faded */
-    }
-
-    /* Main content styling */
-    main {
-      max-width: 800px;
-      margin: 2rem auto; /* Add top margin to account for sticky header */
-      padding: 2rem;
-      background-color: #ffffff; /* White background for content */
-      border-radius: 8px; /* Rounded corners for the content block */
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow for content */
-    }
-
-    /* Footer styling */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #6b7280; /* Muted color for footer text */
-      border-top: 1px solid #e5e7eb; /* Separator line for footer */
-      margin-top: 2rem;
-    }
-
-    /* Add Inter font from Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-  </style>
+  <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
   <header id="pageHeader">
@@ -104,43 +39,48 @@
     <p>If you have any questions or concerns regarding our Refund Policy, please do not hesitate to contact our support team at <a href="mailto:support@negoshiai.com">support@negoshiai.com</a>.</p>
 
   </main>
+
   <footer>
     <p>&copy; 2025 Negoshi AI. All rights reserved.</p>
   </footer>
 
   <script>
-    // Get the header element
+    // Get the header element by its ID
     const header = document.getElementById('pageHeader');
     // Get the first main content element (the target for triggering the animation)
+    // This selects the first h2 element inside the main tag
     const firstMainElement = document.querySelector('main > h2:first-of-type');
 
     // Function to handle the scroll event
     function handleScroll() {
+      // Check if the elements we need exist before proceeding
       if (!header || !firstMainElement) {
-        // Ensure elements exist before proceeding
+        // If elements are not found, stop the function
         // console.warn("Header or first main element not found. Ensure IDs and selectors are correct.");
         return;
       }
 
-      // Get the top position of the first main content element relative to the viewport
+      // Get the position of the top edge of the first main content element relative to the viewport
       const firstMainElementTop = firstMainElement.getBoundingClientRect().top;
-      // Define a threshold for when the fade should occur.
-      // Adjust this value based on your header's height and desired effect.
-      const scrollThreshold = 150; // Pixels from the top of the viewport
+      // Define the scroll threshold. When the top of the firstMainElement reaches
+      // this many pixels from the top of the viewport, the header animation triggers.
+      const scrollThreshold = 150; // You can adjust this value
 
+      // Check if the element has scrolled past the threshold
       if (firstMainElementTop < scrollThreshold) {
-        // If the first main content is close to the top or has scrolled past, add the fade-out class
+        // If it has, add the class that triggers the fade-out and transform effect
         header.classList.add('header-fade-out');
       } else {
-        // Otherwise, ensure the header is visible by removing the fade-out class
+        // If it hasn't scrolled past the threshold, ensure the header is visible
         header.classList.remove('header-fade-out');
       }
     }
 
-    // Add scroll event listener to the window
+    // Add an event listener to the window to call handleScroll whenever the user scrolls
     window.addEventListener('scroll', handleScroll);
 
-    // Call handleScroll once on load in case the page is already scrolled
+    // Add an event listener to run handleScroll once the initial HTML document has been completely loaded and parsed.
+    // This is important for cases where the user might load the page already scrolled down.
     document.addEventListener('DOMContentLoaded', handleScroll);
   </script>
 </body>
