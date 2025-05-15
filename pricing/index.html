@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing | Negoshiai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .plan {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      flex: 1 1 250px;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plan h2 {
+      margin-top: 0;
+    }
+    .price {
+      font-size: 28px;
+      margin: 20px 0;
+    }
+    ul {
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+    .btn {
+      margin-top: 20px;
+      text-align: center;
+    }
+    .btn a {
+      display: inline-block;
+      background: #111;
+      color: white;
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .btn a:hover {
+      background: #333;
+    }
+    @media (max-width: 768px) {
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Negoshiator Agent Service Plans</h1>
+    <div class="plans">
+      <div class="plan">
+        <h2>Starter</h2>
+        <div class="price">$500</div>
+        <ul>
+          <li>1 Negoshiator Agent Service</li>
+          <li>Basic automation & client filtering</li>
+          <li>14-day free trial</li>
+        </ul>
+        <div class="btn"><a href="#">Start Free Trial</a></div>
+      </div>
+      <div class="plan">
+        <h2>Pro</h2>
+        <div class="price">$900</div>
+        <ul>
+          <li>2 Negoshiator Agent Services</li>
+          <li>Enhanced automation & negotiation logic</li>
+          <li>14-day free trial</li>
+        </ul>
+        <div class="btn"><a href="#">Start Free Trial</a></div>
+      </div>
+      <div class="plan">
+        <h2>Elite</h2>
+        <div class="price">$1200</div>
+        <ul>
+          <li>3 Negoshiator Agent Services</li>
+          <li>Advanced automation + lead closing system</li>
+          <li>14-day free trial</li>
+        </ul>
+        <div class="btn"><a href="#">Start Free Trial</a></div>
+      </div>
+      <div class="plan">
+        <h2>Custom Package</h2>
+        <div class="price">Contact</div>
+        <ul>
+          <li>Tailored solution for your business</li>
+          <li>Full workflow planning</li>
+        </ul>
+        <div class="btn"><a href="mailto:contact@negoshiai.online">Contact Us</a></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
