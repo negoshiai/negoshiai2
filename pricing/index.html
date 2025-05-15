@@ -1,101 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pricing | Negoshiai</title>
-  <link rel="stylesheet" href="../style.css?v=1">
   <style>
+    /* --- Buzzworthy-Inspired Premium Theme --- */
     :root {
-      --primary: #111;
-      --secondary: #333;
-      --bg: #f5f5f5;
-      --white: #fff;
-      --accent: #00b894;
-      --radius: 10px;
-      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      --color-background: #0F0F1A;
+      --color-text: #EAEAEA;
+      --color-primary: #FF6B00;
+      --color-primary-light: #FF8C3D;
+      --color-primary-dark: #E05A00;
+      --color-accent: #FF9D4D;
+      --color-secondary-text: #A0A0B0;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --glow-color: rgba(255, 107, 0, 0.7);
+      --font-primary: 'Poppins', sans-serif;
+      --transition-speed: 0.4s;
+      --radius: 12px;
+      --shadow: 0 0 20px rgba(255, 107, 0, 0.15);
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg);
-      color: #222;
+      font-family: var(--font-primary);
+      background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+      color: var(--color-text);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     .container {
-      max-width: 1100px;
-      margin: 60px auto;
+      max-width: 1200px;
+      margin: 80px auto;
       padding: 0 20px;
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 60px;
+      color: var(--color-text);
+      text-shadow: 0 0 10px var(--glow-color);
     }
 
     .plans {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
     }
 
     .plan {
-      background: var(--white);
+      background: #15151f;
+      border: 1px solid var(--color-border);
       border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 30px 25px;
-      flex: 1 1 250px;
+      padding: 35px 30px;
       max-width: 300px;
+      flex: 1 1 260px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .plan:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px var(--glow-color);
     }
 
     .plan h2 {
-      margin-bottom: 10px;
-      font-size: 1.4rem;
-      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--color-primary);
     }
 
     .price {
-      font-size: 2rem;
+      font-size: 2.2rem;
       font-weight: bold;
-      color: var(--accent);
       margin: 20px 0;
+      color: var(--color-accent);
     }
 
     ul {
-      list-style: disc;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      color: var(--color-secondary-text);
+      position: relative;
       padding-left: 20px;
-      margin-bottom: 20px;
+    }
+
+    ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: bold;
     }
 
     .btn a {
       display: inline-block;
-      background: var(--primary);
-      color: var(--white);
+      background: var(--color-primary);
+      color: #fff;
       padding: 12px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background 0.3s;
+      text-align: center;
+      border-radius: var(--radius);
+      font-weight: 600;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px var(--glow-color);
     }
 
     .btn a:hover {
-      background: var(--secondary);
+      background: var(--color-primary-light);
+      box-shadow: 0 0 16px var(--glow-color);
     }
 
     @media (max-width: 768px) {
@@ -155,4 +184,4 @@
     </div>
   </div>
 </body>
-  </html>
+</html>
