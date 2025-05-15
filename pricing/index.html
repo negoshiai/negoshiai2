@@ -1,10 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pricing | Negoshiai</title>
-  <link rel="stylesheet" href="/styles.css?v=1" />
+  <link rel="stylesheet" href="../style.css?v=1">
+  <style>
+    :root {
+      --primary: #111;
+      --secondary: #333;
+      --bg: #f5f5f5;
+      --white: #fff;
+      --accent: #00b894;
+      --radius: 10px;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .plan {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px 25px;
+      flex: 1 1 250px;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s;
+    }
+
+    .plan:hover {
+      transform: translateY(-5px);
+    }
+
+    .plan h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 20px 0;
+    }
+
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .btn a {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--white);
+      padding: 12px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .btn a:hover {
+      background: var(--secondary);
+    }
+
+    @media (max-width: 768px) {
+      .plans {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -55,4 +155,4 @@
     </div>
   </div>
 </body>
-</html>
+  </html>
